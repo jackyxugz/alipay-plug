@@ -1,0 +1,53 @@
+{
+  "name": "下载支付宝保证金明细",
+  "version": "1.1",
+  "manifest_version": 2,
+  "description": "下载支付宝保证金明细",
+  
+  "icons":
+	{
+		"128": "img/icon.png"
+	},
+	
+	"background": {
+		"scripts": ["js/background.js","js/jquery-1.11.3.min.js","js/utils.js"] ,     
+		 "persistent": true
+     },
+
+  "content_scripts": [
+    {
+      "matches": ["https://w.erp321.com/*", "https://erp321.com/*", "https://www.erp321.com/*", "http://*/*", "https://*/*"],
+      "js": ["js/jquery-1.11.3.min.js", "js/content-script.js","js/utils.js" ],	  
+      "run_at": "document_end"
+    }
+  ],	
+	
+	"permissions":
+	[
+		"cookies", //这行必不可少
+		"contextMenus", 
+		"tabs", 
+		"notifications", 
+		"webRequest", 
+		"webRequestBlocking",
+		"storage", 		
+		"*://*.erp321.com/*",
+		"*://w.erp321.com/*",
+		"https://w.erp321.com/*",
+		"https://erp321.com/*"
+	],
+	
+	
+  "web_accessible_resources": [
+    "js/jquery-1.11.3.min.js"	,"js/injector.js"	,"js/utils.js"
+  ],
+  
+  "homepage_url": "http://www.megacombine.com/",
+  "browser_action":
+	{
+		"default_icon":"img/icon.png",
+		"default_title":"下载支付宝保证金明细",
+		"default_popup":"popup.html"
+	}
+  
+}
